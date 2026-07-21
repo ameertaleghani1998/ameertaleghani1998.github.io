@@ -238,8 +238,7 @@ h1, h2 { color:var(--primary); }
 
 /* ================= الجوال ================= */
 @media (max-width:768px) {
-  .hero{
-    padding-top:90px;
+
 }
   .profile-image{
     margin-top:25px;
@@ -247,7 +246,17 @@ h1, h2 { color:var(--primary); }
   body { padding-top:64px; }
   .topbar { flex-wrap:wrap; padding:12px 0; }
   .navmenu nav { gap:14px; justify-content:center; width:100%; order:3; }
-  .hero-grid { display:flex; flex-direction:column-reverse; text-align:center; padding:40px 0; gap:30px; }
+.hero-grid{
+    display:flex;
+    flex-direction:column-reverse;
+    text-align:center;
+    padding:40px 0;
+    gap:30px;
+}
+
+.profile-image{
+    margin-top:35px;
+}
   .hero h1 { font-size:30px; }
   .lead { max-width:100%; }
   .hero-actions { justify-content:center; }
