@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إطار عمل قائم على التعلم الرسومي متعدد المسارات لاكتشاف هجمات DoS | Dr. Amirhossein Taleghani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .article-wrap{
+    width:92%;max-width:800px;margin:auto;padding:120px 0 60px;
+  }
+  .article-wrap .back-link{
+    display:inline-block;margin-bottom:24px;color:var(--gray);font-size:14px;
+  }
+  .article-wrap .meta{
+    font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.5px;
+  }
+  .article-wrap h1{
+    font-size:clamp(24px,4.5vw,34px);
+    color:var(--primary);
+    margin:14px 0 10px;
+    line-height:1.4;
+  }
+  .article-wrap .supervisor-line{
+    font-size:14px;color:var(--gray);margin-bottom:26px;
+  }
+  .article-wrap .lead-desc{
+    font-size:18px;color:var(--secondary);margin-bottom:30px;
+    border-inline-start:3px solid var(--accent);padding-inline-start:16px;
+  }
+  .article-wrap h2{
+    font-size:21px;color:var(--primary);margin:38px 0 16px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .article-wrap h2::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);
+    display:inline-block;flex-shrink:0;
+  }
+  .article-wrap h3{
+    font-size:17px;color:var(--primary);margin:24px 0 10px;
+  }
+  .article-wrap p{
+    font-size:16px;color:var(--secondary);margin-bottom:18px;line-height:1.9;
+  }
+  .article-wrap ul, .article-wrap ol{
+    margin:0 0 20px;padding-inline-start:22px;
+  }
+  .article-wrap li{
+    font-size:16px;color:var(--secondary);margin-bottom:10px;line-height:1.8;
+  }
+  .hypothesis-box{
+    background:var(--light);border:1px solid var(--border);border-radius:12px;
+    padding:18px 20px;margin-bottom:16px;
+  }
+  .hypothesis-box .h-label{
+    font-size:12px;font-weight:700;color:var(--accent);margin-bottom:8px;display:block;
+  }
+  .stat-table{
+    width:100%;border-collapse:collapse;margin:20px 0 28px;
+    font-size:14px;
+  }
+  .stat-table th, .stat-table td{
+    border:1px solid var(--border);padding:10px 12px;text-align:center;
+  }
+  .stat-table th{
+    background:var(--light);color:var(--primary);font-weight:600;
+  }
+  .stat-table td{ color:var(--secondary); }
+  .stat-table .highlight{
+    background:rgba(212,175,55,0.1);font-weight:700;color:var(--primary);
+  }
+  .article-wrap .source-note{
+    margin-top:40px;padding-top:20px;border-top:1px solid var(--border);
+    font-size:13px;color:var(--gray);
+  }
+  body.dark-mode .article-wrap .lead-desc{ color:#CBD5E1; }
+  body.dark-mode .article-wrap p{ color:#CBD5E1; }
+  body.dark-mode .article-wrap li{ color:#CBD5E1; }
+  body.dark-mode .hypothesis-box{ background:#1E293B; border-color:#334155; }
+  body.dark-mode .stat-table th{ background:#1E293B; }
+  body.dark-mode .stat-table td{ color:#CBD5E1; }
+  body.dark-mode .stat-table .highlight{ background:rgba(212,175,55,0.15); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="brand i18n" data-en="A. Taleghani" data-ar="أ. طالقاني"></div>
+    <div class="navmenu">
+      <nav>
+        <a href="index.html#about" class="i18n" data-en="About" data-ar="نبذة"></a>
+        <a href="index.html#research" class="i18n" data-en="Research" data-ar="الأبحاث"></a>
+        <a href="index.html#teaching" class="i18n" data-en="Teaching" data-ar="التدريس"></a>
+        <a href="index.html#blog" class="i18n" data-en="Blog" data-ar="المدونة"></a>
+        <a href="index.html#contact" class="i18n" data-en="Contact" data-ar="التواصل"></a>
+      </nav>
+    </div>
+    <button id="themeToggle">🌙</button>
+    <button id="langToggle">English</button>
+  </div>
+</header>
+
+<div class="article-wrap">
+  <a href="index.html#research" class="back-link i18n" data-en="← Back to Research" data-ar="→ الرجوع للأبحاث"></a>
+
+  <span class="meta i18n" data-en="PAPER · 2025" data-ar="بحث · 2025"></span>
+
+  <h1 class="i18n"
+    data-en="A Multi-Path Graph Learning Framework for Detecting DoS Attacks in Software-Defined Networks"
+    data-ar="إطار عمل قائم على التعلم الرسومي متعدد المسارات لاكتشاف هجمات حجب الخدمة في الشبكات المعرّفة بالبرمجيات"></h1>
+
+  <p class="supervisor-line i18n"
+    data-en="M.Sc. Thesis · Supervisor: Dr. Mehdi Sharifi · Student: Amirhossein Taleghani"
+    data-ar="رسالة ماجستير · إشراف: د. مهدي شريفي · الطالب: أميرحسين طالقاني"></p>
+
+  <p class="lead-desc i18n"
+    data-en="A hybrid graph neural network that combines GraphSAGE, GAT, and Graph Transformer in parallel to overcome the limitations of single-path methods — achieving 99.99% accuracy in detecting complex DoS attacks in SDN environments."
+    data-ar="نموذج شبكة عصبية رسومية هجين يدمج GraphSAGE وGAT وGraph Transformer بالتوازي للتغلب على قصور الطرق أحادية المسار — محققاً دقة 99.99% في اكتشاف هجمات حجب الخدمة المعقدة ضمن بيئات الشبكات المعرّفة بالبرمجيات."></p>
+
+  <h2 class="i18n" data-en="Introduction &amp; Problem Statement" data-ar="المقدمة وبيان المسألة"></h2>
+  <p class="i18n"
+    data-en="Denial-of-Service (DoS) attacks are among the most destructive threats facing network infrastructure, and Software-Defined Networks (SDN) are no exception. These attacks can strike both the control plane and the data plane, disrupting the overall stability of the network. Traditional machine learning approaches are unable to fully exploit the topological structure and complex relationships embedded in network data, which limits their effectiveness against sophisticated attacks."
+    data-ar="تُعد هجمات حجب الخدمة (DoS) من أخطر التهديدات التي تواجه البنية التحتية للشبكات، ولا تُستثنى منها الشبكات المعرّفة بالبرمجيات (SDN). يمكن لهذه الهجمات أن تقع في كل من طبقة التحكم وطبقة البيانات، مما يُخل باستقرار الشبكة ككل. أساليب التعلم الآلي التقليدية غير قادرة على الاستفادة الكاملة من البنية الطوبولوجية والعلاقات المعقدة الكامنة في بيانات الشبكة، وهو ما يحد من فعاليتها أمام الهجمات المعقدة."></p>
+  <p class="i18n"
+    data-en="This research introduces a detection framework for DoS attacks in SDN networks that merges, in parallel, the strengths of GraphSAGE, GAT, and Graph Transformer models — overcoming the limitations of single-path approaches. By extracting local features and modeling long-range dependencies simultaneously, the framework achieves higher accuracy and broader coverage in identifying these complex attacks."
+    data-ar="يقدّم هذا البحث إطار عمل لتشخيص هجمات DoS في شبكات SDN، يدمج بشكل موازٍ نقاط قوة نماذج GraphSAGE وGAT وGraph Transformer، متجاوزاً محدودية الأساليب أحادية المسار. ومن خلال استخراج الخصائص المحلية ونمذجة الاعتماديات بعيدة المدى في آن واحد، يحقق الإطار دقة وشمولية أعلى في التعرف على هذه الهجمات المعقدة."></p>
+
+< truncated lines 131-212 >
+
+  <h3 class="i18n" data-en="4. Training the Hybrid Network" data-ar="4. تدريب الشبكة الهجينة"></h3>
+  <p class="i18n"
+    data-en="The proposed model was trained in batches using the Adam optimizer and the Cross-Entropy loss function on the training data. To prevent overfitting, model performance was evaluated on validation data at every epoch. An early-stopping mechanism was also implemented, halting training if validation error failed to improve after several epochs, in order to preserve the model with the best generalization capability."
+    data-ar="دُرِّب النموذج المقترح على دفعات (Batches) باستخدام محسّن Adam ودالة الخسارة Cross-Entropy على بيانات التدريب. ولمنع الإفراط بالتخصيص (Overfitting)، جرى تقييم أداء النموذج على بيانات التحقق (Validation) في كل حقبة تدريب (Epoch). كما طُبّقت آلية التوقف المبكر (Early Stopping)، بحيث يتوقف التدريب في حال عدم تحسّن خطأ التحقق بعد عدة حقب، للحفاظ على أفضل نموذج من حيث قابلية التعميم."></p>
+
+  <h2 class="i18n" data-en="Results &amp; Discussion" data-ar="النتائج والمناقشة"></h2>
+
+  <h3 class="i18n" data-en="Dataset" data-ar="مواصفات البيانات"></h3>
+  <p class="i18n"
+    data-en="This research uses the NF-CSE-CIC-IDS2018-v2 dataset, which contains roughly 19 million network flow records with 43 features. Only normal traffic and DoS attack flows (approximately 15 million and 484,000 samples respectively) were extracted for training and evaluating the intrusion detection model."
+    data-ar="يستخدم هذا البحث مجموعة بيانات NF-CSE-CIC-IDS2018-v2، التي تحتوي على نحو 19 مليون سجل حركة شبكة بـ43 خاصية. استُخرجت فقط تدفقات الحركة العادية وهجمات DoS (بحوالي 15 مليون و484 ألف عينة على التوالي) للتدريب على نموذج اكتشاف التسلل وتقييمه."></p>
+  <p class="i18n"
+    data-en="Evaluation metrics used included Accuracy, Precision, Recall, and F1-Score, calculated from the standard confusion-matrix components (true/false positives and negatives)."
+    data-ar="اعتُمدت مقاييس التقييم التالية: الدقة الإجمالية (Accuracy)، الدقة (Precision)، الاستدعاء (Recall)، ومقياس F1، وجميعها محسوبة من مكونات مصفوفة الالتباس القياسية (الإيجابيات والسلبيات الصحيحة والكاذبة)."></p>
+
+  <h3 class="i18n" data-en="Effect of Data Size &amp; Class Balancing" data-ar="أثر حجم البيانات والموازنة بين الفئات"></h3>
+  <p class="i18n"
+    data-en="Results showed that the severe imbalance in the original data (over 15 million normal samples versus 484,000 attacks) biased the model toward the majority class and reduced attack-class recall to 94.64%. After balancing the data through resampling, model performance improved markedly, with precision, recall, and F1-score reaching 100% for both classes."
+    data-ar="أظهرت النتائج أن عدم التوازن الشديد في البيانات الأصلية (أكثر من 15 مليون عينة عادية مقابل 484 ألف هجوم) تسبّب بانحياز النموذج نحو الفئة الغالبة وخفض استدعاء فئة الهجوم إلى 94.64%. وبعد موازنة البيانات عبر إعادة أخذ العينات، تحسّن أداء النموذج بشكل ملحوظ، حيث بلغت الدقة والاستدعاء ومقياس F1 نسبة 100% لكلتا الفئتين."></p>
+
+  <h3 class="i18n" data-en="Effect of Graph Model Type" data-ar="أثر نوع النموذج الرسومي"></h3>
+  <p class="i18n"
+    data-en="Comparing the hybrid model against its individual components showed a clear advantage for the combined approach:"
+    data-ar="أظهرت مقارنة النموذج الهجين بمكوناته المنفردة تفوقاً واضحاً للنهج المُدمج:"></p>
+
+  <table class="stat-table">
+    <tr>
+      <th class="i18n" data-en="Model" data-ar="النموذج"></th>
+      <th class="i18n" data-en="Precision" data-ar="الدقة"></th>
+      <th class="i18n" data-en="Recall" data-ar="الاستدعاء"></th>
+      <th class="i18n" data-en="F-Score" data-ar="مقياس F1"></th>
+    </tr>
+    <tr>
+      <td>GraphSAGE</td>
+      <td>98.48%</td>
+      <td>98.48%</td>
+      <td>98.48%</td>
+    </tr>
+    <tr>
+      <td>GAT</td>
+      <td>98.10%</td>
+      <td>98.10%</td>
+      <td>98.10%</td>
+    </tr>
+    <tr class="highlight">
+      <td class="i18n" data-en="Hybrid SAGE-GAT-Transformer" data-ar="النموذج الهجين SAGE-GAT-Transformer"></td>
+      <td>99.99%</td>
+      <td>99.99%</td>
+      <td>99.99%</td>
+    </tr>
+  </table>
+
+  <p class="i18n"
+    data-en="This gain reflects the synergy between the three architectures: GraphSAGE captures local features, GAT models weighted relationships, and Transformer captures long-range dependencies — together enabling far more precise detection of complex DoS attacks."
+    data-ar="يعكس هذا التحسّن التآزر بين المعماريات الثلاث: GraphSAGE يلتقط الخصائص المحلية، GAT ينمذج العلاقات المرجّحة، وTransformer يلتقط الاعتماديات بعيدة المدى، ليتيح مجموعها اكتشافاً أدق بكثير لهجمات DoS المعقدة."></p>
+
+  <h3 class="i18n" data-en="Comparison with Prior Published Work" data-ar="مقارنة مع أبحاث منشورة سابقاً"></h3>
+  <table class="stat-table">
+    <tr>
+      <th class="i18n" data-en="Model" data-ar="النموذج"></th>
+      <th class="i18n" data-en="Accuracy" data-ar="الدقة الإجمالية"></th>
+      <th class="i18n" data-en="Precision" data-ar="الدقة"></th>
+      <th class="i18n" data-en="Recall" data-ar="الاستدعاء"></th>
+      <th class="i18n" data-en="F-Score" data-ar="مقياس F1"></th>
+    </tr>
+    <tr class="highlight">
+      <td class="i18n" data-en="Proposed SGAT" data-ar="النموذج المقترح SGAT"></td>
+      <td>99.81%</td>
+      <td>99.6%</td>
+      <td>97.31%</td>
+      <td>98.43%</td>
+    </tr>
+    <tr>
+      <td>Sarhan et al.</td>
+      <td>99.35%</td>
+      <td>98.3%</td>
+      <td>96.89%</td>
+      <td>97%</td>
+    </tr>
+    <tr>
+      <td>FSLLM</td>
+      <td>99.5%</td>
+      <td>99.5%</td>
+      <td>98.1%</td>
+      <td>98.79%</td>
+    </tr>
+    <tr>
+      <td>IF GraphSAGE</td>
+      <td>98%</td>
+      <td>—</td>
+      <td>95%</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>M-MLP</td>
+      <td>98.82%</td>
+      <td>98.9%</td>
+      <td>97.82%</td>
+      <td>98.35%</td>
+    </tr>
+  </table>
+  <p class="i18n"
+    data-en="The proposed method — by combining three graph architectures — outperformed other approaches in accuracy and precision, though it showed a slightly weaker recall and F1-score compared to a few competitors. This is mainly attributed to the model's conservative behavior in flagging positive cases and to its specific parameter settings."
+    data-ar="تفوّق الأسلوب المقترح — من خلال دمج ثلاث معماريات رسومية — على بقية الأساليب من حيث الدقة الإجمالية والدقة، لكنه أظهر أداءً أضعف قليلاً في الاستدعاء ومقياس F1 مقارنة ببعض المنافسين، ويُعزى ذلك بشكل رئيسي إلى تحفّظ النموذج في تصنيف الحالات الإيجابية وإلى إعدادات المعاملات (Parameters) المحددة له."></p>
+
+  <h2 class="i18n" data-en="Overall Conclusion" data-ar="الاستنتاج الكلي"></h2>
+  <p class="i18n"
+    data-en="By proposing a hybrid framework based on GraphSAGE, GAT, and Transformer, this research succeeded in confirming all of its hypotheses. Results showed that this multi-path architecture — by improving the extraction of both local and global features — not only significantly increased the accuracy and recall of DoS attack detection compared to single-path models, but also reduced false-positive and false-negative errors, elevating overall system performance in SDN environments to a level close to ideal."
+    data-ar="من خلال تقديم إطار عمل هجين قائم على GraphSAGE وGAT وTransformer، نجح هذا البحث في تأكيد جميع فرضياته. أظهرت النتائج أن هذه المعمارية متعددة المسارات، عبر تحسين استخراج الخصائص المحلية والشاملة معاً، لم تكتفِ برفع دقة واستدعاء اكتشاف هجمات DoS بشكل ملحوظ مقارنة بالنماذج أحادية المسار، بل خفّضت أيضاً الأخطاء الإيجابية والسلبية الكاذبة، مما رفع الأداء الكلي للنظام في بيئات SDN إلى مستوى قريب من المثالية."></p>
+
+  <h2 class="i18n" data-en="Future Recommendations" data-ar="المقترحات المستقبلية"></h2>
+  <ul>
+    <li class="i18n" data-en="<strong>Feature optimization:</strong> studying the effect of advanced dimensionality-reduction and feature-selection methods (such as PCA or metaheuristic algorithms) on improving the efficiency and speed of graph-learning models." data-ar="<strong>تحسين الخصائص:</strong> دراسة أثر الطرق المتقدمة لتقليل الأبعاد واختيار الخصائص (مثل PCA أو الخوارزميات فوق-الابتكارية) على تحسين كفاءة وسرعة نماذج التعلم الرسومي."></li>
+    <li class="i18n" data-en="<strong>Generalizing the application:</strong> testing and extending the proposed framework to detect other types of attacks, and evaluating its performance in real network environments with live data." data-ar="<strong>تعميم التطبيق:</strong> اختبار الإطار المقترح وتوسيعه للتعرف على أنواع أخرى من الهجمات، وتقييم أدائه في بيئات شبكات حقيقية ذات بيانات حيّة."></li>
+  </ul>
+
+  <div class="source-note i18n"
+    data-en="Dataset: NF-CSE-CIC-IDS2018-v2. Model comparisons referenced: Sarhan et al., FSLLM, IF GraphSAGE, M-MLP."
+    data-ar="مجموعة البيانات: NF-CSE-CIC-IDS2018-v2. النماذج المقارنة المرجعية: Sarhan et al., FSLLM, IF GraphSAGE, M-MLP."></div>
+</div>
+
+<footer>
+  <span class="i18n" data-en="© 2026 Amirhossein Taleghani. Built with care." data-ar="© 2026 أمير حسين طالقاني. صُنع بعناية."></span>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+<h2 class="i18n" data-en="Research Objectives" data-ar="أهداف البحث"></h2>
+  <p class="i18n"
+    data-en="<strong>Main objective:</strong> to propose a multi-path framework based on hybrid graph learning to improve the detection of Denial-of-Service attacks in software-defined networks."
+    data-ar="<strong>الهدف الرئيسي:</strong> تقديم إطار عمل متعدد المسارات قائم على التعلم الرسومي التركيبي لتحسين اكتشاف هجمات حجب الخدمة في الشبكات المعرّفة بالبرمجيات."></p>
+  <ul>
+    <li class="i18n" data-en="Increase the DoS attack detection rate by extracting multi-dimensional features and analyzing the network's complex structures within the proposed framework." data-ar="رفع نسبة اكتشاف هجمات DoS من خلال استخراج خصائص متعددة الأبعاد وتحليل البُنى المعقدة للشبكة ضمن الإطار المقترح."></li>
+    <li class="i18n" data-en="Improve detection accuracy by reducing false-positive and false-negative rates when identifying attacks in SDN networks." data-ar="تحسين صحة (دقة) اكتشاف الهجمات عبر خفض معدلات الأخطاء الإيجابية الكاذبة والسلبية الكاذبة عند التعرف على الهجمات في شبكات SDN."></li>
+  </ul>
+
+  <h2 class="i18n" data-en="Research Hypotheses" data-ar="فرضيات البحث"></h2>
+  <div class="hypothesis-box">
+    <span class="h-label i18n" data-en="MAIN HYPOTHESIS" data-ar="الفرضية الرئيسية"></span>
+    <p class="i18n" style="margin:0"
+      data-en="If a hybrid graph-learning multi-path framework — combining GraphSAGE, GAT, and Graph Transformer — is used to analyze SDN network data, then the system's ability to detect Denial-of-Service (DoS) attacks will improve compared to methods based on a single graph model."
+      data-ar="إذا استُخدم إطار عمل متعدد المسارات قائم على التعلم الرسومي التركيبي، يجمع GraphSAGE وGAT وGraph Transformer لتحليل بيانات شبكات SDN، فإن قدرة النظام على اكتشاف هجمات حجب الخدمة (DoS) ستتحسّن مقارنة بالأساليب المعتمدة على نموذج رسومي واحد."></p>
+  </div>
+  <ol>
+    <li class="i18n" data-en="If the proposed framework combines multi-dimensional feature extraction with the analysis of the network's complex structures, then the DoS detection rate will increase compared to traditional and single-model methods." data-ar="إذا استُخدم في الإطار المقترح مزيج من استخراج الخصائص متعددة الأبعاد وتحليل البُنى المعقدة للشبكة، فإن معدل اكتشاف هجمات DoS سيزداد مقارنة بالطرق التقليدية والأحادية النموذج."></li>
+    <li class="i18n" data-en="If the proposed framework is designed to reduce false-positive and false-negative error rates, then the accuracy of DoS attack detection in software-defined networks will increase relative to baseline models." data-ar="إذا صُمّم الإطار المقترح بهدف خفض معدلات الأخطاء الإيجابية الكاذبة والسلبية الكاذبة، فإن دقة اكتشاف هجمات DoS في الشبكات المعرّفة بالبرمجيات ستزداد مقارنة بالنماذج الأساسية."></li>
+  </ol>
+
+  <h2 class="i18n" data-en="Theoretical Background" data-ar="الخلفية النظرية"></h2>
+
+  <h3 class="i18n" data-en="SDN Network Architecture" data-ar="معمارية شبكة SDN"></h3>
+  <p class="i18n"
+    data-en="SDN architecture separates the data and control planes, creating a flexible, centralized, and programmable network paradigm. This three-layer architecture (data, control, and application), together with northbound and southbound interfaces, significantly improves network management, security, and automation."
+    data-ar="تُنشئ معمارية SDN، من خلال فصل صفحتي البيانات والتحكم، نموذجاً شبكياً مرناً ومركزياً وقابلاً للبرمجة. هذه المعمارية الثلاثية الطبقات (البيانات، التحكم، والتطبيق)، إلى جانب الواجهات الشمالية والجنوبية، تُحسّن بشكل ملحوظ إدارة الشبكة وأمنها وأتمتتها."></p>
+
+  <h3 class="i18n" data-en="Attacks on SDN Networks" data-ar="الهجمات على شبكات SDN"></h3>
+  <p class="i18n"
+    data-en="Because SDN architecture centralizes management in the controller, the controller becomes the primary target of DDoS attacks. Attackers flood the network with a high volume of fake packets or flows, exhausting controller and switch resources and disrupting the entire network's performance by creating congestion along the path."
+    data-ar="بما أن معمارية SDN تُركّز الإدارة في المتحكم (Controller)، فإنه يتحول إلى الهدف الرئيسي لهجمات DDoS. يقوم المهاجمون بإرسال حجم كبير من الحزم أو التدفقات المزيفة، مما يُنهك موارد المتحكم والمحولات (Switches) ويُخل بأداء الشبكة بأكملها عبر خلق اختناق في المسار."></p>
+
+  <h3 class="i18n" data-en="Intrusion Detection in SDN" data-ar="اكتشاف التسلل في شبكات SDN"></h3>
+  <p class="i18n"
+    data-en="Intrusion detection systems in SDN mainly rely on two approaches: signature-based detection, which works by matching predefined rules, and anomaly-based detection, which uses machine learning and deep learning techniques to model normal network behavior and flag deviations from it as attacks."
+    data-ar="تعتمد أنظمة اكتشاف التسلل في SDN بشكل رئيسي على أسلوبين: الاكتشاف المبني على التوقيع، الذي يعمل عبر مطابقة قواعد مُعرَّفة مسبقاً، والاكتشاف المبني على الشذوذ، الذي يستخدم تقنيات التعلم الآلي والتعلم العميق لنمذجة السلوك الطبيعي للشبكة والإبلاغ عن أي انحراف عنه بوصفه هجوماً."></p>
+
+  <h3 class="i18n" data-en="Deep Learning in Intrusion Detection" data-ar="التعلم العميق في اكتشاف التسلل"></h3>
+  <p class="i18n"
+    data-en="Deep neural networks — particularly convolutional networks (CNN) and recurrent networks (RNN) — are powerful tools for detecting attacks in network traffic due to their ability to automatically extract complex patterns. CNNs focus on spatial and local patterns, while RNNs model temporal dependencies in sequential data, significantly improving the accuracy and generalizability of anomaly-detection systems."
+    data-ar="تُعد الشبكات العصبية العميقة، وخصوصاً الشبكات الكانولوشنية (CNN) والشبكات الرجعية (RNN)، أدوات قوية لاكتشاف الهجمات في حركة مرور الشبكة بفضل قدرتها على استخراج الأنماط المعقدة تلقائياً. تركّز شبكات CNN على الأنماط المكانية والمحلية، بينما تنمذج شبكات RNN الاعتماديات الزمنية في البيانات المتسلسلة، مما يُحسّن بشكل ملحوظ دقة أنظمة اكتشاف الشذوذ وقابليتها للتعميم."></p>
+
+  <h3 class="i18n" data-en="Graph Neural Networks (GNN)" data-ar="الشبكات العصبية الرسومية (GNN)"></h3>
+  <p class="i18n"
+    data-en="Deep graph networks are designed to analyze data with irregular, complex structures (such as computer or social networks), modeling relationships between entities through a message-passing mechanism. While classical networks like CNN and RNN are optimized for regular data (images) or sequential data (time series), GNNs are inherently capable of capturing multi-directional dependencies and graph structure — making them especially suitable for modeling complex environments such as network traffic and attack detection in SDN."
+    data-ar="صُمّمت الشبكات العميقة الرسومية لتحليل البيانات ذات البنية غير المنتظمة والمعقدة (مثل الشبكات الحاسوبية أو الاجتماعية)، وتنمذج العلاقات بين الكيانات عبر آلية تمرير الرسائل. وفي حين تُعد الشبكات الكلاسيكية مثل CNN وRNN مُحسَّنة للبيانات المنتظمة (الصور) أو المتسلسلة (الزمنية)، فإن شبكات GNN قادرة بطبيعتها على إدراك الاعتماديات متعددة الاتجاهات وبنية الرسم البياني، مما يجعلها مناسبة تماماً لنمذجة بيئات معقدة كحركة مرور الشبكة واكتشاف الهجمات في SDN."></p>
+
+  <h3 class="i18n" data-en="GraphSAGE" data-ar="GraphSAGE"></h3>
+  <p class="i18n"
+    data-en="GraphSAGE is an efficient algorithm for learning node embeddings in large, dynamic graphs. It computes vector representations of nodes by sampling from their neighbors and aggregating their features."
+    data-ar="GraphSAGE هو خوارزمية فعّالة لتعلّم تمثيلات (Embeddings) العقد في الرسوم البيانية الكبيرة والديناميكية، إذ يحسب التمثيل المتجهي للعقد عبر أخذ عينات من جيرانها وتجميع خصائصهم."></p>
+
+  <h3 class="i18n" data-en="Graph Transformer" data-ar="الترنسفورمر الرسومي"></h3>
+  <p class="i18n"
+    data-en="Graph Transformer extends the global attention mechanism of the Transformer architecture to graphs, enabling the modeling of long-range and non-local dependencies among all nodes. Compared to locally-focused models like GraphSAGE and GAT, this approach is better suited to detecting complex, distributed attack patterns across the network."
+    data-ar="يُعمّم الترنسفورمر الرسومي آلية الانتباه الشاملة لمعمارية Transformer على الرسوم البيانية، مما يتيح نمذجة الاعتماديات بعيدة المدى وغير المحلية بين جميع العقد. ومقارنة بالنماذج ذات التركيز المحلي مثل GraphSAGE وGAT، يُعد هذا النهج أكثر ملاءمة لاكتشاف الأنماط المعقدة والهجمات الموزّعة عبر الشبكة."></p>
+
+  <h2 class="i18n" data-en="Related Work" data-ar="الدراسات السابقة"></h2>
+  <p class="i18n"
+    data-en="The thesis reviews several recent studies (2024–2025) on intrusion detection in SDN, including hybrid SVM-KNN models for real-time healthcare-network detection, improved swarm-optimization algorithms for dimensionality reduction, hybrid feature selection with bidirectional BiLSTM for IoT-based SDN, comparisons between KNN and deep models such as TabNet and Wide &amp; Deep, quantum neural network-based DDoS detection, and deep reinforcement learning with autoencoders and bidirectional BGRU. Across these studies, recurring limitations included high computational complexity, long training times, heavy reliance on large training datasets, and, in some cases, weaker performance than simpler models."
+    data-ar="تستعرض الرسالة عدة دراسات حديثة (2024–2025) حول اكتشاف التسلل في SDN، منها نماذج هجينة تجمع SVM وKNN للاكتشاف الآني في شبكات المستشفيات، خوارزميات محسَّنة لتحسين الأسراب لتقليل الأبعاد، اختيار خصائص هجين مع BiLSTM ثنائي الاتجاه لشبكات SDN المبنية على إنترنت الأشياء، مقارنات بين KNN ونماذج عميقة مثل TabNet وWide &amp; Deep، اكتشاف هجمات DDoS بشبكات عصبية كمومية، وتعلّم تعزيزي عميق مع مرمّزات تلقائية وBGRU ثنائي الاتجاه. وقد تكررت في هذه الدراسات محدوديات مشتركة، من أبرزها التعقيد الحسابي المرتفع، طول زمن التدريب، الاعتماد الكبير على كميات ضخمة من بيانات التدريب، وفي بعض الحالات أداء أضعف من نماذج أبسط."></p>
+
+  <h2 class="i18n" data-en="Methodology" data-ar="المنهجية"></h2>
+  <p class="i18n"
+    data-en="The proposed model — SGAT-Transformer — is a multi-path graph neural network that runs three complementary branches in parallel rather than relying on a single approach, following four main stages:"
+    data-ar="النموذج المقترح — SGAT-Transformer — هو شبكة عصبية رسومية متعددة المسارات تُشغّل ثلاثة فروع متكاملة بالتوازي بدلاً من الاعتماد على نهج واحد، ضمن أربع مراحل رئيسية:"></p>
+
+  <h3 class="i18n" data-en="1. Data Preparation &amp; Preprocessing" data-ar="1. مرحلة إعداد البيانات ومعالجتها المسبقة"></h3>
+  <p class="i18n"
+    data-en="Samples related to single-vector DoS attacks and clean traffic were selected, filtered, and labeled. Class sizes were then balanced, and invalid values were replaced with column medians. Extremely large or small values were clipped to the range [-1e9, 1e9] to reduce the influence of outliers, and Z-score standardization was applied — using training-data statistics only — to prevent information leakage into the evaluation set."
+    data-ar="تم اختيار العينات المتعلقة بهجمات DoS أحادية المتجه والحركة السليمة، وتصفيتها ووسمها. بعدها جرى موازنة أحجام الفئات، واستبدال القيم غير الصالحة بوسيط كل عمود. كما جرى تحديد القيم الكبيرة أو الصغيرة جداً بمدى [-1e9, 1e9] لتقليل تأثير القيم المتطرفة، وطُبّق تطبيع Z-score باستخدام إحصاءات بيانات التدريب فقط لمنع تسرّب المعلومات إلى مجموعة التقييم."></p>
+
+  <h3 class="i18n" data-en="2. Building the KNN Graph" data-ar="2. بناء رسم بياني KNN"></h3>
+  <p class="i18n"
+    data-en="To model relationships between data samples, a graph was constructed using the K-Nearest Neighbors algorithm (K=5) with Euclidean distance. The goal was to represent neighborhood structure and dependency between data points so graph-based models could exploit local information and sample similarity for better learning, particularly in attack detection."
+    data-ar="لنمذجة العلاقات بين عينات البيانات، بُني رسم بياني باستخدام خوارزمية أقرب الجيران (KNN) بقيمة K=5 واعتماد المسافة الإقليدية. كان الهدف تمثيل بنية الجوار والاعتماديات بين نقاط البيانات، بحيث تستفيد النماذج الرسومية من المعلومات المحلية والتشابه بين العينات لتحسين عملية التعلّم، خصوصاً في اكتشاف الهجمات."></p>
+
+  <h3 class="i18n" data-en="3. Building the Hybrid SGAT-Transformer Network" data-ar="3. بناء الشبكة الهجينة SGAT-Transformer"></h3>
+  <p class="i18n"
+    data-en="The proposed architecture begins with two parallel branches: one using two GraphSAGE layers to extract local features, and another using two GAT layers to intelligently weight neighboring nodes. The outputs of both branches are then merged and fed into two TransformerConv layers to model long-range and complex dependencies across the graph. Finally, the extracted features pass through several linear layers, along with Dropout and activation functions, to perform the final classification."
+    data-ar="تبدأ المعمارية المقترحة بفرعين متوازيين: الأول يستخدم طبقتين من GraphSAGE لاستخراج الخصائص المحلية، والثاني يستخدم طبقتين من GAT لوزن العقد المجاورة بذكاء. بعدها تُدمج مخرجات الفرعين وتُغذّى إلى طبقتين من TransformerConv لنمذجة الاعتماديات بعيدة المدى والمعقدة عبر الرسم البياني. وأخيراً، تمر الخصائص المستخرجة عبر عدة طبقات خطية، إلى جانب Dropout وتوابع التنشيط، لتنفيذ التصنيف النهائي."></p>
