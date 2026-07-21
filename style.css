@@ -238,6 +238,9 @@ h1, h2 { color:var(--primary); }
 
 /* ================= الجوال ================= */
 @media (max-width:768px) {
+  .profile-image{
+    margin-top:25px;
+}
   body { padding-top:64px; }
   .topbar { flex-wrap:wrap; padding:12px 0; }
   .navmenu nav { gap:14px; justify-content:center; width:100%; order:3; }
