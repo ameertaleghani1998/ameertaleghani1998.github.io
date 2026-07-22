@@ -43,16 +43,13 @@ document.addEventListener('DOMContentLoaded', () => setTheme(darkMode));
 
 
 
-window.addEventListener("load", () => {
+window.addEventListener("pageshow", function () {
 
     if (window.location.hash) {
 
-        history.replaceState(null, null, window.location.pathname);
+        history.replaceState("", document.title, window.location.pathname);
 
-        window.scrollTo({
-            top:0,
-            behavior:"instant"
-        });
+        window.scrollTo(0, 0);
 
     }
 
