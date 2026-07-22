@@ -101,18 +101,9 @@ header{
 }
 
 /* ================= القائمة ================= */
-.navmenu nav{
-
-    display:flex;
-
-    gap:34px;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-}
-
 .navmenu nav a{
+
+    position:relative;
 
     color:rgba(255,255,255,.85);
 
@@ -120,43 +111,41 @@ header{
 
     font-weight:500;
 
+    text-decoration:none;
+
     transition:.35s;
 }
 
-.navmenu nav a:hover{
-
-    color:#D4AF37;
-}
-
 .navmenu nav a::after{
+
     content:"";
+
     position:absolute;
+
     left:0;
+
     bottom:-6px;
 
     width:0;
+
     height:2px;
 
     background:var(--accent);
 
     border-radius:2px;
+
     transition:width .3s ease;
 }
 
 .navmenu nav a:hover{
-    color:var(--primary);
+
+    color:var(--accent);
 }
 
 .navmenu nav a:hover::after{
+
     width:100%;
 }
-#langToggle {
-  background:var(--primary); color:var(--white); border:none;
-  padding:8px 18px; border-radius:8px; font-weight:600;
-  cursor:pointer; font-family:inherit; white-space:nowrap; transition:.3s;
-}
-#langToggle:hover { background:var(--accent); }
-
 /* ================= الأزرار ================= */
 .btn { display:inline-block; padding:12px 28px; border-radius:8px; font-weight:600; transition:.3s; cursor:pointer; }
 .btn:hover { transform:translateY(-3px); }
