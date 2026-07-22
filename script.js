@@ -41,3 +41,19 @@ themeToggle.addEventListener('click', () => setTheme(!darkMode));
 
 document.addEventListener('DOMContentLoaded', () => setTheme(darkMode));
 
+
+
+window.addEventListener("load", () => {
+
+    if (window.location.hash) {
+
+        history.replaceState(null, null, window.location.pathname);
+
+        window.scrollTo({
+            top:0,
+            behavior:"instant"
+        });
+
+    }
+
+});
