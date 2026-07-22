@@ -54,3 +54,26 @@ window.addEventListener("pageshow", function () {
     }
 
 });
+
+// التنقل السلس بدون إضافة # إلى الرابط
+document.querySelectorAll(".navmenu a[data-target]").forEach(link => {
+
+    link.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const target = document.getElementById(this.dataset.target);
+
+        if (target) {
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+    });
+
+});
+
