@@ -302,17 +302,23 @@ body.dark-mode {
   --background:#0B1120;
 }
 
-body.dark-mode header {
-  background:rgba(15,23,42,.95);
+/* ===== الوضع الليلي ===== */
+
+body.dark-mode header{
+    background:linear-gradient(
+        135deg,
+        #111827 0%,
+        #1E3A5F 100%
+    );
 }
 
 body.dark-mode .about-card,
-body.dark-mode .card {
-  background:#1E293B;
+body.dark-mode .card{
+    background:#1E293B;
 }
 
-body.dark-mode .tag {
-  background:#0F172A;
+body.dark-mode .tag{
+    background:#0F172A;
 }
 
 
