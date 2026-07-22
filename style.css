@@ -28,41 +28,66 @@ ul { list-style:none; }
 .container { width:90%; max-width:1200px; margin:auto; }
 
 /* ================= الهيدر ================= */
-header {
-  position:fixed; top:0; left:0; width:100%;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  z-index:1000;
+header{
+
+    position:relative;
+
+    width:100%;
+
+    background:linear-gradient(
+        135deg,
+        #0F172A 0%,
+        #162338 100%
+    );
+
+    border-bottom:1px solid rgba(212,175,55,.20);
+
+    padding:35px 0 55px;
+
+    overflow:hidden;
 }
 
-.topbar {
-  width:92%; max-width:1200px; margin:auto;
-  display:flex; justify-content:space-between; align-items:center;
-  padding:16px 0; gap:20px;
+.topbar{
+
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:22px;
+
+    padding:35px 0 28px;
+}
+.header-buttons{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    justify-content:center;
 }
 
 /* ================= الشعار ================= */
 .brand{
-    display:flex;
-    align-items:center;
-    justify-content:center;
 
-    padding:10px 18px;
+    font-size:30px;
 
-    background:rgba(255,255,255,.55);
-    backdrop-filter:blur(10px);
-
-    border:1.5px solid rgba(212,175,55,.45);
-    border-radius:12px;
-
-    color:var(--primary);
-    font-size:17px;
     font-weight:700;
-    letter-spacing:.3px;
-    white-space:nowrap;
 
-    transition:all .35s ease;
+    color:white;
+
+    background:none;
+
+    border:none;
+
+    padding:0;
+
+    box-shadow:none;
+
+    letter-spacing:.5px;
 }
 
 .brand:hover{
@@ -77,18 +102,30 @@ header {
 
 /* ================= القائمة ================= */
 .navmenu nav{
+
     display:flex;
-    align-items:center;
-    gap:28px;
+
+    gap:34px;
+
+    justify-content:center;
+
     flex-wrap:wrap;
 }
 
 .navmenu nav a{
-    position:relative;
+
+    color:rgba(255,255,255,.85);
+
     font-size:15px;
-    color:var(--gray);
+
     font-weight:500;
-    transition:color .3s ease;
+
+    transition:.35s;
+}
+
+.navmenu nav a:hover{
+
+    color:#D4AF37;
 }
 
 .navmenu nav a::after{
