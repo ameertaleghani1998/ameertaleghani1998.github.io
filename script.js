@@ -43,17 +43,7 @@ document.addEventListener('DOMContentLoaded', () => setTheme(darkMode));
 
 
 
-window.addEventListener("pageshow", function () {
 
-    if (window.location.hash) {
-
-        history.replaceState("", document.title, window.location.pathname);
-
-        window.scrollTo(0, 0);
-
-    }
-
-});
 
 // التنقل السلس بدون إضافة # إلى الرابط
 document.querySelectorAll(".navmenu a[data-target]").forEach(link => {
