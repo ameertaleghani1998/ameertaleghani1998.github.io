@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لماذا الإنترنت بطيء في العراق؟ | Dr. Amirhossein Taleghani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .article-wrap{
+    width:92%;max-width:760px;margin:auto;padding:120px 0 60px;
+  }
+  .article-wrap .back-link{
+    display:inline-block;margin-bottom:24px;color:var(--gray);font-size:14px;
+  }
+  .article-wrap .meta{
+    font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.5px;
+  }
+  .article-wrap h1{
+    font-size:clamp(26px,5vw,38px);
+    color:var(--primary);
+    margin:14px 0 24px;
+    line-height:1.4;
+  }
+  .article-wrap .lead-desc{
+    font-size:18px;color:var(--secondary);margin-bottom:30px;
+    border-inline-start:3px solid var(--accent);padding-inline-start:16px;
+  }
+  .article-wrap h2{
+    font-size:20px;color:var(--primary);margin:34px 0 14px;
+  }
+  .article-wrap p{
+    font-size:17px;color:var(--secondary);margin-bottom:22px;line-height:1.9;
+  }
+  .article-wrap .source-note{
+    margin-top:40px;padding-top:20px;border-top:1px solid var(--border);
+    font-size:13px;color:var(--gray);
+  }
+  body.dark-mode .article-wrap .lead-desc{ color:#CBD5E1; }
+  body.dark-mode .article-wrap p{ color:#CBD5E1; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="brand i18n" data-en="A. Taleghani" data-ar="أ. طالقاني"></div>
+    <div class="navmenu">
+      <nav>
+        <a href="index.html#about" class="i18n" data-en="About" data-ar="نبذة"></a>
+        <a href="index.html#research" class="i18n" data-en="Research" data-ar="الأبحاث"></a>
+        <a href="index.html#teaching" class="i18n" data-en="Teaching" data-ar="التدريس"></a>
+        <a href="index.html#blog" class="i18n" data-en="Blog" data-ar="المدونة"></a>
+        <a href="index.html#contact" class="i18n" data-en="Contact" data-ar="التواصل"></a>
+      </nav>
+    </div>
+    <button id="themeToggle">🌙</button>
+    <button id="langToggle">English</button>
+  </div>
+</header>
+
+<div class="article-wrap">
+  <a href="index.html#blog" class="back-link i18n" data-en="← Back to Blog" data-ar="→ الرجوع للمدونة"></a>
+
+  <span class="meta i18n" data-en="NETWORKS" data-ar="شبكات"></span>
+
+  <h1 class="i18n"
+    data-en="Why Is the Internet So Slow in Iraq? An Engineering Look at a Problem Everyone Lives With"
+    data-ar="لماذا الإنترنت بطيء في العراق؟ نظرة هندسية على مشكلة يعيشها الجميع"></h1>
+
+  <p class="lead-desc i18n"
+    data-en="It isn't coincidence or 'bad luck' — Iraq's weak internet has specific engineering causes, and it also has solutions that are already underway."
+    data-ar="ليست مصادفة ولا 'حظاً سيئاً' — ضعف الإنترنت في العراق له أسباب هندسية محددة، وله أيضاً حلول قيد التنفيذ فعلياً."></p>
+
+  <p class="i18n"
+    data-en="'The internet today is garbage' — a phrase heard daily across Iraq, whether during an online lecture that keeps buffering, a video call that freezes, or a simple webpage that takes minutes to load. But behind this everyday frustration lie real, understandable engineering reasons — which is exactly what makes this topic worth a technical look, not just a complaint."
+    data-ar="'النت اليوم زبالة' — جملة يسمعها أي عراقي يومياً، سواء أثناء محاضرة أونلاين تتقطع، أو مكالمة فيديو تتجمد، أو صفحة بسيطة تأخذ دقائق لتفتح. لكن خلف هذا الإزعاج اليومي، توجد أسباب هندسية حقيقية وقابلة للفهم — وهذا ما يجعل الموضوع يستحق نظرة تقنية، لا مجرد شكوى."></p>
+
+  <h2 class="i18n" data-en="The First Problem: Dependence on External Routes" data-ar="المشكلة الأولى: الاعتماد على مسارات خارجية"></h2>
+  <p class="i18n"
+    data-en="Internet connectivity in Iraq isn't generated locally — it arrives through fiber-optic cables that pass through neighboring countries before reaching local service providers. This means that any fault or congestion occurring outside Iraq's borders — in a submarine cable, or at a connection point in another country — directly affects connection speed inside the country, with neither the user nor even the local provider having any control over it."
+    data-ar="الإنترنت في العراق لا يُنتج محلياً، بل يصل عبر كابلات ألياف ضوئية تمر بدول مجاورة قبل أن تصل إلى مزودي الخدمة داخل البلاد. هذا يعني أن أي عطل أو ضغط يحصل خارج حدود العراق — في كابل بحري، أو محطة ربط بدولة أخرى — ينعكس مباشرة على سرعة الاتصال داخلياً، دون أن يكون للمستخدم أو حتى لمزود الخدمة المحلي أي سيطرة عليه."></p>
+  <p class="i18n"
+    data-en="A real example of this: during the 2018 elections, Iraq experienced noticeable network restrictions caused by a cut in one of the submarine cables carrying a large share of the country's internet traffic — a single incident at a single point, affecting millions of users at once."
+    data-ar="مثال واقعي على هذا: خلال انتخابات 2018، تعرّض العراق لقيود ملحوظة على الشبكة بسبب قطع في أحد الكابلات البحرية التي تحمل جزءاً كبيراً من حركة الإنترنت في البلاد — حادثة واحدة في نقطة واحدة، أثّرت على ملايين المستخدمين دفعة واحدة."></p>
+
+  <h2 class="i18n" data-en="The Second Problem: Aging Internal Infrastructure" data-ar="المشكلة الثانية: بنية تحتية داخلية قديمة"></h2>
+  <p class="i18n"
+    data-en="Even after internet connectivity reaches Iraqi territory, the internal network that distributes it to homes and offices suffers from clear aging and struggles to keep pace with the rapidly growing number of users. A large portion of users, especially outside major cities, rely on local wireless towers instead of direct fiber-optic connections, which reduces quality and increases instability — particularly during peak hours, when a large number of users share the same bandwidth."
+    data-ar="حتى بعد وصول الإنترنت إلى الأراضي العراقية، فإن الشبكة الداخلية التي توزّعه على البيوت والمكاتب تعاني من قِدَم واضح، ولا تواكب النمو السريع في عدد المستخدمين. جزء كبير من المستخدمين، خصوصاً خارج المدن الكبرى، يعتمدون على أبراج بث لاسلكي محلية بدل الألياف الضوئية المباشرة، وهذا يقلل الجودة ويزيد التذبذب، خاصة في أوقات الذروة حين يتشارك عدد كبير من المستخدمين النطاق نفسه."></p>
+
+  <h2 class="i18n" data-en="The Third Problem: The Gap Between Regions" data-ar="المشكلة الثالثة: الفجوة بين المناطق"></h2>
+  <p class="i18n"
+    data-en="There's a clear disparity between major cities and other regions in terms of infrastructure quality and investment, resulting in significant variation in internet experience from one part of the country to another."
+    data-ar="الفارق واضح بين المدن الكبرى والمناطق الأخرى من حيث جودة البنية التحتية والاستثمار فيها، ما ينتج عنه تفاوتاً كبيراً في تجربة الإنترنت من منطقة إلى أخرى داخل البلد الواحد."></p>
+
+  <h2 class="i18n" data-en="So Is There Hope?" data-ar="فهل هناك أمل؟"></h2>
+  <p class="i18n"
+    data-en="Yes — and progress isn't as slow as commonly assumed. The National Internet Project, launched in 2021, has been extending direct fiber-to-the-home (FTTH) service to previously underserved areas, reaching 180,000 subscribers by February 2024, with gradual expansion covering governorates such as Babil, Maysan, Muthanna, Najaf, and Dhi Qar. Companies like EarthLink are also working with government bodies to extend fiber-optic networks to additional urban and rural areas."
+    data-ar="نعم، والتطورات ليست بطيئة كما يُشاع. مشروع الإنترنت الوطني بدأ منذ عام 2021 بتوصيل خدمة الألياف الضوئية المباشرة (FTTH) إلى مناطق كانت محرومة منها سابقاً، ووصل عدد المشتركين فيه إلى 180 ألف مشترك حتى فبراير 2024، مع توسّع تدريجي شمل محافظات مثل بابل وميسان والمثنى والنجف وذي قار. كما تعمل شركات مثل إيرثلنك مع الجهات الحكومية على مد شبكة الألياف الضوئية لتغطية مناطق حضرية وريفية إضافية."></p>
+  <p class="i18n"
+    data-en="These projects won't fix the problem overnight, but they represent real steps toward a more stable infrastructure — exactly the kind of transformation a country needs when moving from full dependence on fragile external routes toward a more resilient internal network."
+    data-ar="هذه المشاريع لا تحل المشكلة بين ليلة وضحاها، لكنها تمثل خطوات فعلية باتجاه بنية تحتية أكثر استقراراً — وهي بالضبط نوع التحول الذي يحتاجه أي بلد ينتقل من الاعتماد الكامل على مسارات خارجية هشة، إلى شبكة داخلية أكثر مرونة وقدرة على الصمود."></p>
+  <p class="i18n"
+    data-en="Understanding these causes won't make the internet faster tomorrow, but it turns daily frustration into knowledge — and reminds us that every improvement in this space comes from real infrastructure being built, not just promises."
+    data-ar="فهم هذه الأسباب لا يجعل الإنترنت أسرع غداً، لكنه يحوّل الإحباط اليومي إلى معرفة، ويذكّرنا أن كل تحسّن في هذا المجال هو نتاج بنية تحتية حقيقية تُبنى، لا مجرد وعود."></p>
+
+  <div class="source-note i18n"
+    data-en='Sources: Freedom House, "Iraq: Freedom on the Net 2024"; Shafaq News, "Internet in Iraq: Snail-speed service, high costs, and digital divide" (2025).'
+    data-ar='المصادر: Freedom House, "Iraq: Freedom on the Net 2024"؛ Shafaq News, "Internet in Iraq: Snail-speed service, high costs, and digital divide" (2025).'></div>
+</div>
+
+<footer>
+  <span class="i18n" data-en="© 2026 Amirhossein Taleghani. Built with care." data-ar="© 2026 أمير حسين طالقاني. صُنع بعناية."></span>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
