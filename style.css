@@ -437,4 +437,30 @@ body.dark-mode .tag{
     background:#0F172A;
 }
 
+.ai-card {
+    position: relative;
+    background:
+        linear-gradient(
+            rgba(8, 22, 48, 0.75),
+            rgba(8, 22, 48, 0.75)
+        ),
+        url("AI.png");
 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #fff;
+    overflow: hidden;
+}
+
+.ai-card .meta,
+.ai-card h3,
+.ai-card p {
+    color: #ffffff;
+}
+
+.ai-card .link {
+    color: #D4AF37;
+    font-weight: 600;
+}
