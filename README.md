@@ -1,2 +1,2 @@
-# ameertaleghani1998.github.io
+# ameer.talqani.github.io
 Assistant Professor Portfolio
